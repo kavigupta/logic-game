@@ -3,6 +3,7 @@
 
 \LoadClass{standalone}
 
+\RequirePackage{amssymb}
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 
