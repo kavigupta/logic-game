@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+mkdir -p .cache
+HASH=$(md5sum $1 | awk '{print $1}')
+OUTPUT=${1%.lcg}
+HASHED=.cache/$HASH
+
+if [[ -a $HASHED.png ]]; then
+    cp $HASHED.png $OUTPUT.png
+    exit 0
+fi
+
+(echo '\documentclass{logic-game}\\begin{document}\\begin{tikzpicture}'; cat $1; echo '\\end{tikzpicture}\\end{document}') > /tmp/temp.tex
+pdflatex -interaction=batchmode -output-directory /tmp /tmp/temp.tex | grep -v 'pdfTeX\|write18\|entering extended mode'
+pdftoppm -f 1 -singlefile -rx 1000 -ry 1000 -png /tmp/*.pdf $HASHED
+
+exec $0 "$@"
