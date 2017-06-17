@@ -6,10 +6,11 @@
 \RequirePackage{amssymb}
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{positioning}
 
 \tikzstyle{turn} = [rectangle, rounded corners, text centered, draw=black]
 \tikzstyle{arrow} = [thick,->,>=stealth]
-\tikzset{every picture/.style={node distance=1.5cm}}
+\tikzset{every picture/.style={node distance=0.5cm}}
 
 \newcommand{\turnbox}[5]{\node(#5)[turn, fill=#1, #4]{$#2 #3$}}
 
@@ -20,15 +21,17 @@
 \newcommand{\terminal}{\turnbox{white!30}{}}
 
 \newcommand{\after}[3]{%
-    #2{right of=#1}{#3}; \draw[arrow] (#1) -- (#3)
+    #2{right=of #1}{#3}; \draw[arrow] (#1) -- (#3)
 }
 
-\newcommand{\twoafter}[5]{%
-    #2{above right of=#1}{#3};
-    #4{below right of=#1}{#5};
-    \draw[arrow] (#1) -- (#3);
-    \draw[arrow] (#1) -- (#5)
+\newcommand{\twoafterc}[6]{%
+    #3{above right=#1 cm and 0.5 cm of #2}{#4};
+    #5{below right=#1 cm and 0.5 cm of #2}{#6};
+    \draw[arrow] (#2) -- (#4);
+    \draw[arrow] (#2) -- (#6)
 }
+
+\newcommand{\twoafter}{\twoafterc{0.5}}
 
 \newcommand{\start}[2]{%
     #1{}{#2}
