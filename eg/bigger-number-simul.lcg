@@ -1,0 +1,2 @@
+\beginning{start};
+\simultaneousc{0.3}{start}{\expositor{y : \mathbb N}}{exp}{\adversary{x : \mathbb N}}{adv}{\terminal{x \geq y}}{term};

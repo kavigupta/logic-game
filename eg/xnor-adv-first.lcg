@@ -1,0 +1,4 @@
+\start{\conj}{u};
+\twoafter{u}{\disj}{v}{\disj}{w};
+\twoafterc{0}{v}{\terminal{\top}}{x}{\terminal{\bot}}{y};
+\twoafterc{0}{w}{\terminal{\bot}}{x}{\terminal{\top}}{y};

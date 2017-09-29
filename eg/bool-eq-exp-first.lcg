@@ -1,0 +1,3 @@
+\start{\expositor{x : \{0, 1\}}}{e};
+\after{e}{\adversary{y : \{0, 1\}}}{a};
+\after{a}{\terminal{x = y}}{u};

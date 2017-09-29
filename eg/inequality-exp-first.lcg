@@ -1,0 +1,3 @@
+\start{\expositor{y : \mathbb N}}{nx};
+\after{nx}{\adversary{x : \mathbb N}}{ny};
+\after{ny}{\terminal{x \leq y}}{term};
